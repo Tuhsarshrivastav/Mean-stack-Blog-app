@@ -1,6 +1,7 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgModule } from '@angular/core';
+import {AccountserviceService} from './account/accountservice.service';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -9,6 +10,8 @@ import { BannerComponent } from './banner/banner.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ArticlesModule } from './articles/articles.module';
 import { StaticpagesModule } from './staticpages/staticpages.module';
+import {AccountModule} from './account/account.module';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,11 +22,15 @@ import { StaticpagesModule } from './staticpages/staticpages.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ArticlesModule,
     StaticpagesModule,
-    AppRoutingModule
+    AccountModule,
+    AppRoutingModule,
+    
   ],
-  providers: [],
+  providers: [AccountserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+ 
